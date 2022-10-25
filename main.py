@@ -45,9 +45,10 @@ async def about():
 @app.post('/users')
 # usaremos el BaseModel para indicar que datos y tipos necesitamos
 async def create_user(user_data: UserRequestModel):
+  hash_password = User.create_password(user_data.password)
   new_user = User.create(
     username= user_data.username,
-    password= user_data.password
+    password= hash_password
   )
   return new_user.id
 
