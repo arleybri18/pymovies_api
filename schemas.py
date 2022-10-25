@@ -19,8 +19,8 @@ class UserRequestModel(BaseModel):
 
   @validator('username')
   def username_validator(cls, username):
-    if len(username) < 3 and len(username) < 50:
-      pass
+    if len(username) < 3 or len(username) > 50:
+      raise ValueError("La longitud debe estar entre 3 y 50")
 
 class UserResponseModel(BaseModel):
   id: int
