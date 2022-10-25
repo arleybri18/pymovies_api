@@ -42,7 +42,7 @@ async def index():
 async def about():
   return 'About'
 
-@app.post('/users/')
+@app.post('/users')
 # usaremos el BaseModel para indicar que datos y tipos necesitamos
 async def create_user(user_data: UserRequestModel):
   new_user = User.create(
